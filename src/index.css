@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Tech-focused Palette: Deep Navy & Gold Accents */
+  --background: 222 47% 11%;     /* Dark navy background */
+  --foreground: 210 40% 98%;     /* Crisp white text */
+  
+  --primary: 45 93% 47%;         /* Gold/Yellow accent */
+  --primary-foreground: 222 47% 11%;
+  
+  --secondary: 217 33% 17%;      /* Lighter navy for cards */
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 33% 20%;
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 199 89% 48%;         /* Bright blue for links/highlights */
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 217 33% 20%;
+  --input: 217 33% 20%;
+  --ring: 45 93% 47%;
+  
+  --radius: 0.75rem;
+  
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-yellow-200 to-primary;
+  }
+  
+  .glass-card {
+    @apply bg-secondary/50 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+}
